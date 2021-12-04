@@ -14,7 +14,6 @@ AddEventHandler('QBCore:DebugSomething', function(resource, obj, depth)
                 str = str.."\n["..k.."] -> "..tostring(v)
             end
         end
-        
         print(str.."\n}")
     else
         local success, value = pcall(function() return tostring(obj) end)
