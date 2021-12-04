@@ -75,14 +75,13 @@ RegisterServerEvent("QBCore:server:CloseServer")
 AddEventHandler('QBCore:server:CloseServer', function(reason)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-
     if QBCore.Functions.HasPermission(source, "admin") or QBCore.Functions.HasPermission(source, "god") then 
         local reason = reason ~= nil and reason or "No specified motive..."
         QBCore.Config.Server.closed = true
         QBCore.Config.Server.closedReason = reason
         TriggerClientEvent("admin:client:SetServerStatus", -1, true)
 	else
-		QBCore.Functions.Kick(src, "Älä yritä kusta muroihin..", nil, nil)
+	QBCore.Functions.Kick(src, "Älä yritä kusta muroihin..", nil, nil)
     end
 end)
 
@@ -195,7 +194,7 @@ AddEventHandler('chatMessage', function(source, n, message)
 						QBCore.Commands.List[command].callback(source, args)
 					end
 				else
-					TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Älä yritä kusta muroihin..")
+				TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Älä yritä kusta muroihin..")
 				end
 			end
 		end
