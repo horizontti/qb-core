@@ -2,14 +2,7 @@ QBCore.Commands = {}
 QBCore.Commands.List = {}
 
 QBCore.Commands.Add = function(name, help, arguments, argsrequired, callback, permission)
-	QBCore.Commands.List[name:lower()] = {
-		name = name:lower(),
-		permission = permission ~= nil and permission:lower() or "user",
-		help = help,
-		arguments = arguments,
-		argsrequired = argsrequired,
-		callback = callback,
-	}
+	QBCore.Commands.List[name:lower()] = {name = name:lower(), permission = permission ~= nil and permission:lower() or "user", help = help, arguments = arguments, argsrequired = argsrequired, callback = callback}
 end
 
 QBCore.Commands.Refresh = function(source)
@@ -151,7 +144,6 @@ QBCore.Commands.Add("ooc", "Message Out Of Character", {}, false, function(sourc
 	TriggerClientEvent("QBCore:Client:LocalOutOfCharacter", -1, source, GetPlayerName(source), message)
 	local Players = QBCore.Functions.GetPlayers()
 	local Player = QBCore.Functions.GetPlayer(source)
-
 	for k, v in pairs(QBCore.Functions.GetPlayers()) do
 		if QBCore.Functions.HasPermission(v, "admin") then
 			if QBCore.Functions.IsOptin(v) then
