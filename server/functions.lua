@@ -157,11 +157,7 @@ end
 QBCore.Functions.AddPermission = function(source, permission)
 	local Player = QBCore.Functions.GetPlayer(source)
 	if Player ~= nil then 
-		QBCore.Config.Server.PermissionList[GetPlayerIdentifiers(source)[1]] = {
-			steam = GetPlayerIdentifiers(source)[1],
-			license = GetPlayerIdentifiers(source)[2],
-			permission = permission:lower(),
-		}
+		QBCore.Config.Server.PermissionList[GetPlayerIdentifiers(source)[1]] = {steam = GetPlayerIdentifiers(source)[1], license = GetPlayerIdentifiers(source)[2], permission = permission:lower()}
 		QBCore.Functions.ExecuteSql(true, "DELETE FROM `permissions` WHERE `steam` = '"..GetPlayerIdentifiers(source)[1].."'")
 		QBCore.Functions.ExecuteSql(true, "INSERT INTO `permissions` (`name`, `steam`, `license`, `permission`) VALUES ('"..GetPlayerName(source).."', '"..GetPlayerIdentifiers(source)[1].."', '"..GetPlayerIdentifiers(source)[2].."', '"..permission:lower().."')")
 		Player.Functions.UpdatePlayerData()
@@ -244,4 +240,3 @@ QBCore.Functions.IsPlayerBanned = function (source)
 	end)
 	return retval, message
 end
-
