@@ -6,7 +6,7 @@ QBConfig.Server.PermissionList  = {}
 QBConfig.MaxPlayers             = GetConvarInt('sv_maxclients', 1024)
 QBConfig.IdentifierType         = "steam"
 QBConfig.DefaultSpawn           = {x=-1035.71,y=-2731.87,z=12.86,a=0.0}
-QBConfig.Money.MoneyTypes       = {['cash'] = 1000, ['bank'] = 200000, ['crypto'] = 0}
+QBConfig.Money.MoneyTypes       = {['cash'] = 0, ['bank'] = 490, ['crypto'] = 0}
 QBConfig.Money.DontAllowMinus   = {'cash', 'crypto', 'bank'}
 QBConfig.Player.MaxWeight       = 40000
 QBConfig.Player.MaxInvSlots     = 18
